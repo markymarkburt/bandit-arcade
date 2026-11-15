@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bubble Bandit · Bandit Arcade</title>
+  <meta name="description" content="Bubble Bandit — aim, fire, match three to pop. Clear the board." />
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="brand-mark">🥷</span>BANDIT ARCADE</span>
+    <nav>
+      <a href="/">Games</a>
+      <a href="/slots/">Slots</a>
+      <a href="/holdem/">Hold'em</a>
+      <a href="/blackjack/">Blackjack</a>
+      <a href="/flappy/">Flappy</a>
+      <a href="/snake/">Snake</a>
+      <a href="/bubble/" class="active">Bubble</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="stage panel">
+      <h1 class="game-title">BUBBLE BANDIT</h1>
+      <p class="tagline">Aim, fire, match three to pop. Clear the board before it reaches the bottom.</p>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="400" height="560" aria-label="Bubble Bandit bubble shooter"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-title" id="overlay-title">BUBBLE BANDIT</div>
+          <div class="overlay-sub" id="overlay-sub">Move to aim, click or tap to fire</div>
+          <button class="btn btn-gold" id="start-btn">START</button>
+        </div>
+      </div>
+
+      <section class="stats">
+        <div class="stat">
+          <span class="label">SCORE</span>
+          <span id="score">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">BEST</span>
+          <span id="best">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">LEFT</span>
+          <span id="left">0</span>
+        </div>
+      </section>
+
+      <details class="help">
+        <summary>How to play</summary>
+        <p>
+          Move your mouse (or drag) to aim, click or tap to fire. Bubbles stick where they
+          land — group <strong>3 or more</strong> of the same color to pop them. Anything left
+          hanging with no connection to the ceiling falls too. Clear the board to win;
+          if the bubbles reach the bottom, it's over.
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

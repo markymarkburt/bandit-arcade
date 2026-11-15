@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake · Bandit Arcade</title>
+  <meta name="description" content="Bandit Snake — eat the loot, grow the tail, don't eat yourself." />
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="brand-mark">🥷</span>BANDIT ARCADE</span>
+    <nav>
+      <a href="/">Games</a>
+      <a href="/slots/">Slots</a>
+      <a href="/holdem/">Hold'em</a>
+      <a href="/blackjack/">Blackjack</a>
+      <a href="/flappy/">Flappy</a>
+      <a href="/snake/" class="active">Snake</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="stage panel">
+      <h1 class="game-title">SNAKE</h1>
+      <p class="tagline">Eat the loot, grow the tail. Don't eat yourself.</p>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="400" height="400" aria-label="Snake game"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-title" id="overlay-title">SNAKE</div>
+          <div class="overlay-sub" id="overlay-sub">Arrow keys or WASD to move</div>
+          <button class="btn btn-gold" id="start-btn">START</button>
+        </div>
+      </div>
+
+      <section class="stats">
+        <div class="stat">
+          <span class="label">SCORE</span>
+          <span id="score">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">BEST</span>
+          <span id="best">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">LENGTH</span>
+          <span id="length">3</span>
+        </div>
+      </section>
+
+      <details class="help">
+        <summary>How to play</summary>
+        <p>
+          Arrow keys or <strong>WASD</strong> to steer. Eat the gold loot to grow and score —
+          each piece is worth 10 and speeds the game up a touch. Don't hit the walls or
+          your own tail. On touch devices, swipe to change direction.
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

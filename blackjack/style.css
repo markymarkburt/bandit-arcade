@@ -1,0 +1,205 @@
+/* Blackjack — game-specific styles on top of the shared theme. */
+
+.page {
+  display: grid;
+  place-items: center;
+}
+
+.table {
+  width: min(600px, 100%);
+  padding: 28px 26px 24px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, var(--felt-2) 0%, var(--felt) 75%),
+    var(--surface);
+  border-color: rgba(245, 197, 66, 0.18);
+}
+
+.game-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  letter-spacing: 0.16em;
+  background: linear-gradient(180deg, #ffe9a3 0%, var(--gold) 55%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 26px rgba(245, 197, 66, 0.2);
+}
+
+.tagline {
+  margin: 6px 0 22px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hand-row {
+  padding: 12px 0;
+}
+
+.hand-row + .hand-row {
+  border-top: 1px solid var(--edge);
+}
+
+.player-tag {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.player-tag .name { font-weight: 600; }
+
+.hand-total {
+  min-width: 2em;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.hand-total.bust { color: var(--secondary); }
+.hand-total.bj { color: var(--gold); }
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 84px;
+}
+
+.card {
+  width: 58px;
+  height: 84px;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  animation: deal-in 0.22s ease-out;
+}
+
+.card .rank { font-size: 1.35rem; line-height: 1.1; }
+.card .suit { font-size: 1.2rem; line-height: 1.1; }
+.card.red { color: #c62828; }
+
+.card.back {
+  background:
+    repeating-linear-gradient(45deg, var(--primary) 0 6px, var(--primary-bright) 6px 12px);
+  border: 2px solid #fafafa;
+}
+
+@keyframes deal-in {
+  from { transform: translateY(-14px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.message {
+  min-height: 1.4em;
+  margin: 16px 0;
+  color: var(--muted);
+}
+
+.message.win  { color: var(--win); font-weight: 600; }
+.message.lose { color: var(--secondary); font-weight: 600; }
+.message.push { color: var(--muted); font-weight: 600; }
+
+.bet-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+
+.bet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chip-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--edge);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.1s, border-color 0.2s;
+}
+
+.chip-btn:hover { border-color: var(--primary-bright); }
+.chip-btn:active { transform: scale(0.92); }
+
+.bet-display {
+  display: flex;
+  flex-direction: column;
+  min-width: 64px;
+}
+
+.label {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+#bet-amount { font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stat {
+  background: var(--surface-2);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat span:last-child { font-size: 1.15rem; font-weight: 700; }
+#chips { color: var(--win); }
+#wins { color: var(--win); }
+#losses { color: var(--secondary); }
+
+.help {
+  margin-top: 18px;
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.help summary {
+  cursor: pointer;
+  text-align: center;
+  list-style-position: inside;
+}
+
+.help p { line-height: 1.55; }
+
+@media (max-width: 480px) {
+  .table { padding: 20px 14px 16px; }
+  .cards { gap: 6px; min-height: 70px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .bet-row { flex-direction: column; gap: 14px; }
+  .actions .btn { padding: 12px 18px; font-size: 0.85rem; }
+}

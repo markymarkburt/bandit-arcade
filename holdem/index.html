@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Hold'em · Bandit Arcade</title>
+  <meta name="description" content="Heads-up Texas Hold'em against the Bandit. No real money, just bragging rights." />
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="brand-mark">🥷</span>BANDIT ARCADE</span>
+    <nav>
+      <a href="/">Games</a>
+      <a href="/slots/">Slots</a>
+      <a href="/holdem/" class="active">Hold'em</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="table panel">
+      <h1 class="game-title">TEXAS HOLD'EM</h1>
+      <p class="tagline">Heads-up against the Bandit. Best five-card hand takes the pot.</p>
+
+      <!-- Bandit (dealer) -->
+      <section class="hand-row">
+        <div class="player-tag">
+          <span class="name">🥷 The Bandit</span>
+          <span class="chips" id="ai-chips">1000</span>
+        </div>
+        <div class="cards" id="ai-cards"></div>
+        <div class="hand-note" id="ai-note"></div>
+      </section>
+
+      <!-- Board + pot -->
+      <section class="board-area">
+        <div class="cards board" id="board"></div>
+        <div class="pot">POT <span id="pot">0</span></div>
+      </section>
+
+      <!-- You -->
+      <section class="hand-row">
+        <div class="player-tag">
+          <span class="name">You</span>
+          <span class="chips" id="player-chips">1000</span>
+        </div>
+        <div class="cards" id="player-cards"></div>
+        <div class="hand-note" id="player-note"></div>
+      </section>
+
+      <p class="message" id="message">Press DEAL to start a hand.</p>
+
+      <section class="actions">
+        <button class="btn btn-primary" id="deal-btn">DEAL</button>
+        <button class="btn" id="check-call-btn" disabled>CHECK</button>
+        <button class="btn btn-secondary" id="bet-btn" disabled>BET 20</button>
+        <button class="btn" id="fold-btn" disabled>FOLD</button>
+      </section>
+
+      <details class="help">
+        <summary>How a hand works</summary>
+        <p>
+          Heads-up Hold'em, simplified: you and the Bandit each get two cards.
+          Blinds are 10/20 and rotate each hand. Bet, call, or fold before the flop,
+          on the flop (3 community cards), the turn (4th), and the river (5th).
+          If nobody folds, the best five-card hand at showdown wins the pot.
+          Bets are a fixed 20 — the Bandit calls with decent hands, folds trash,
+          and occasionally bluffs. Bust the Bandit to win.
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

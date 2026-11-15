@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackjack · Bandit Arcade</title>
+  <meta name="description" content="Bandit Blackjack — beat the dealer to 21. No real money, just bragging rights." />
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="brand-mark">🥷</span>BANDIT ARCADE</span>
+    <nav>
+      <a href="/">Games</a>
+      <a href="/slots/">Slots</a>
+      <a href="/holdem/">Hold'em</a>
+      <a href="/blackjack/" class="active">Blackjack</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="table panel">
+      <h1 class="game-title">BLACKJACK</h1>
+      <p class="tagline">Beat the Bandit to 21. Dealer stands on all 17s. Blackjack pays 3:2.</p>
+
+      <!-- Bandit (dealer) -->
+      <section class="hand-row">
+        <div class="player-tag">
+          <span class="name">🥷 The Bandit</span>
+          <span class="hand-total" id="dealer-total"></span>
+        </div>
+        <div class="cards" id="dealer-cards"></div>
+      </section>
+
+      <!-- You -->
+      <section class="hand-row">
+        <div class="player-tag">
+          <span class="name">You</span>
+          <span class="hand-total" id="player-total"></span>
+        </div>
+        <div class="cards" id="player-cards"></div>
+      </section>
+
+      <p class="message" id="message">Place your bet and deal.</p>
+
+      <section class="bet-row" id="bet-row">
+        <div class="bet">
+          <button id="bet-down" class="chip-btn" aria-label="Decrease bet">−</button>
+          <div class="bet-display">
+            <span class="label">BET</span>
+            <span id="bet-amount">25</span>
+          </div>
+          <button id="bet-up" class="chip-btn" aria-label="Increase bet">+</button>
+        </div>
+        <button class="btn btn-primary" id="deal-btn">DEAL</button>
+      </section>
+
+      <section class="actions" id="actions" hidden>
+        <button class="btn btn-primary" id="hit-btn">HIT</button>
+        <button class="btn" id="stand-btn">STAND</button>
+        <button class="btn btn-secondary" id="double-btn">DOUBLE</button>
+      </section>
+
+      <section class="stats">
+        <div class="stat">
+          <span class="label">CHIPS</span>
+          <span id="chips">500</span>
+        </div>
+        <div class="stat">
+          <span class="label">WINS</span>
+          <span id="wins">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">LOSSES</span>
+          <span id="losses">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">PUSHES</span>
+          <span id="pushes">0</span>
+        </div>
+      </section>
+
+      <details class="help">
+        <summary>Rules</summary>
+        <p>
+          Standard blackjack: closest to 21 without going over wins. Face cards are 10,
+          aces are 1 or 11. Blackjack (ace + 10 on the deal) pays 3:2. The Bandit
+          hits on 16 and stands on all 17s. Double down doubles your bet for exactly
+          one more card. Bust the Bandit's 500-chip stack — or lose yours trying.
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

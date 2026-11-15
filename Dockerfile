@@ -13,6 +13,7 @@ RUN touch /var/run/nginx.pid \
   && chown -R nginx:nginx /var/cache/nginx \
   && chown -R nginx:nginx /usr/share/nginx/html
 
-USER nginx
+# Numeric non-root UID (nginx is uid 101 in the alpine image).
+USER 101
 
 EXPOSE 8080
